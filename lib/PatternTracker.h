@@ -1,11 +1,9 @@
 //
 //  PatternTracker.h
-//  markerless_AR
 //
-//  Created by kikko on 07/11/13.
+//  Created by kikko_fr on 07/11/13.
 //
 //
-
 
 // most of the code here comes from :
 // Ch3 of the book "Mastering OpenCV with Practical Computer Vision Projects"
@@ -50,6 +48,7 @@ namespace cv {
     {
     public:
         PatternTracker();
+        virtual ~PatternTracker(){ std::cout << "Destroying Pattern Tracker" << std::endl; };
         
         void setup();
         void add(const cv::Mat& image);
@@ -62,10 +61,10 @@ namespace cv {
         float homographyReprojectionThreshold;
         float rescale;
         
-        const std::vector<cv::KeyPoint>&    getPatternKeyPoints() { return m_pattern.keypoints; }
-        const std::vector<cv::KeyPoint>&    getQueryKeyPoints() { return m_queryKeypoints; }
-        const std::vector<cv::DMatch>&      getMatches() { return m_matches; }
-        const std::vector<cv::Point2f>&     getQuad() { return m_info.points2d; }
+        const std::vector<cv::KeyPoint>&    getPatternKeyPoints() const { return m_pattern.keypoints; }
+        const std::vector<cv::KeyPoint>&    getQueryKeyPoints() const { return m_queryKeypoints; }
+        const std::vector<cv::DMatch>&      getMatches() const { return m_matches; }
+        const std::vector<cv::Point2f>&     getQuad() const { return m_info.points2d; }
         
     protected:
         

@@ -1,8 +1,7 @@
 //
 //  PatternTracker.cpp
-//  markerless_AR
 //
-//  Created by kikko on 07/11/13.
+//  Created by kikko_fr on 07/11/13.
 //
 //
 
@@ -25,7 +24,7 @@ namespace cv {
     }
 
     void PatternTracker::setup(){
-        m_detector = new cv::OrbFeatureDetector(400); // cv::ORB(1000);
+        m_detector = new cv::OrbFeatureDetector(500); // cv::ORB(1000);
         m_extractor = new cv::OrbDescriptorExtractor(); // cv::FREAK(false, false)
         m_matcher = new cv::BruteForceMatcher< cv::HammingLUT >(); // cv::BFMatcher(cv::NORM_HAMMING, true)
     }
